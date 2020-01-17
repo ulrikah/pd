@@ -1,0 +1,3 @@
+This patch utilises analog potentiometers to control the mix of multiple pitch shifters on the audio input (`adc~ 1 2`). An additional potentiometer controls the frequency of the modulator modulating the amplitude of the carrier signal. A feedback delay effect is added to the dry signal before it's being processed by the pitch shifters.
+
+The photo [bela.jpg](bela.jpg) shows how the connections are made on the Bela.
