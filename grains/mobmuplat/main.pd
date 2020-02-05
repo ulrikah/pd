@@ -73,7 +73,7 @@
 #X text 696 775 DEBUG;
 #X obj 652 947 r s1;
 #X obj 652 971 print s1;
-#N canvas -1 610 960 564 mobmuplat 1;
+#N canvas 0 610 960 564 mobmuplat 1;
 #X obj 39 217 outlet lfo;
 #X obj 106 197 outlet offset;
 #X obj 204 167 outlet slot;
@@ -144,13 +144,13 @@
 #X obj 732 1007 r s4;
 #X obj 732 1031 print s4;
 #X obj 615 197 vsl 20 128 0 1 0 0 s1 empty empty 0 -9 0 10 -204800
--1 -1 11560 1;
+-1 -1 10160 1;
 #X obj 665 197 vsl 20 128 0 1 0 0 s2 empty empty 0 -9 0 10 -204786
--1 -1 1560 1;
+-1 -1 10160 1;
 #X obj 715 197 vsl 20 128 0 1 0 0 s3 empty empty 0 -9 0 10 -261234
 -1 -1 10160 1;
 #X obj 765 197 vsl 20 128 0 1 0 0 s4 empty empty 0 -9 0 10 -262130
--1 -1 6260 1;
+-1 -1 10160 1;
 #X obj 665 51 loadbang;
 #X msg 665 104 0.8;
 #X text 808 186 VOICE MIXER;
