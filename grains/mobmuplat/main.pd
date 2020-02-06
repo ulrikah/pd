@@ -3,7 +3,7 @@
 #X obj 765 426 tgl 100 0 empty empty empty 17 7 0 10 -203904 -1 -1
 0 1;
 #X obj 33 52 hsl 128 25 1 32 0 1 empty empty TIME -2 -16 0 24 -262130
--1 -261234 0 0;
+-1 -261234 500 0;
 #X obj 152 688 adc~;
 #X obj 152 726 throw~ audio;
 #X obj 30 114 s time;
@@ -213,7 +213,7 @@
 #X obj 176 1089 shift;
 #X obj 273 1089 shift;
 #X obj 33 476 hsl 128 25 0 1 0 1 empty empty PITCHSHIFT -2 -16 0 24
--262130 -1 -261234 6000 1;
+-262130 -1 -261234 0 1;
 #X obj 30 520 round_int;
 #X obj 30 501 * 12;
 #X obj 30 539 - 6;
