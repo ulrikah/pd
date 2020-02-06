@@ -1,6 +1,6 @@
 #N canvas 960 23 960 1150 12;
 #X msg 224 64 \; pd dsp \$1;
-#X obj 224 34 tgl 30 0 empty empty empty 17 7 0 10 -203904 -1 -1 1
+#X obj 224 34 tgl 30 0 empty empty empty 17 7 0 10 -203904 -1 -1 0
 1;
 #X text 224 13 turn dsp on/off;
 #X obj 43 182 hsl 128 25 1 32 0 1 empty empty TIME -2 -16 0 24 -262130
@@ -13,8 +13,8 @@
 #X obj 208 956 sampler;
 #X obj 214 143 loadbang;
 #X obj 305 958 sampler;
-#X obj 208 1063 *~ 1;
-#X obj 208 1103 dac~;
+#X obj 248 1092 *~ 1;
+#X obj 248 1132 dac~;
 #X obj 38 78 *~ 1;
 #X obj 33 938 catch~ audio;
 #X text 35 18 audio input;
@@ -51,30 +51,30 @@
 #X obj 305 1000 *~ 0.5;
 #X obj 398 1000 *~ 0.5;
 #X obj 514 1000 *~ 0.5;
-#X obj 343 1044 r total;
+#X obj 291 1092 r total;
 #X obj 319 981 r s2;
 #X obj 412 981 r s3;
 #X obj 528 981 r s4;
 #X obj 75 729 r rec;
-#X obj 646 816 r lfo;
-#X obj 646 840 print lfo;
-#X obj 727 816 r slot;
-#X obj 727 840 print slot;
-#X obj 647 866 r time;
-#X obj 648 890 print time;
-#X obj 837 816 r rec;
-#X obj 839 840 print rec;
-#X obj 728 891 print offset;
-#X obj 727 866 r offset;
-#X text 696 775 DEBUG;
-#X obj 652 947 r s1;
-#X obj 652 971 print s1;
-#X obj 732 947 r s2;
-#X obj 732 971 print s2;
-#X obj 652 1007 r s3;
-#X obj 652 1031 print s3;
-#X obj 732 1007 r s4;
-#X obj 732 1031 print s4;
+#X obj 496 386 r lfo;
+#X obj 496 410 print lfo;
+#X obj 577 386 r slot;
+#X obj 577 410 print slot;
+#X obj 497 436 r time;
+#X obj 498 460 print time;
+#X obj 687 386 r rec;
+#X obj 689 410 print rec;
+#X obj 578 461 print offset;
+#X obj 577 436 r offset;
+#X text 546 345 DEBUG;
+#X obj 502 517 r s1;
+#X obj 502 541 print s1;
+#X obj 582 517 r s2;
+#X obj 582 541 print s2;
+#X obj 502 577 r s3;
+#X obj 502 601 print s3;
+#X obj 582 577 r s4;
+#X obj 582 601 print s4;
 #X obj 615 197 vsl 20 128 0 1 0 0 s1 empty empty 0 -9 0 10 -204800
 -1 -1 10160 1;
 #X obj 665 197 vsl 20 128 0 1 0 0 s2 empty empty 0 -9 0 10 -204786
@@ -90,11 +90,11 @@
 #X msg 715 142 0.25;
 #X msg 615 142 0.4;
 #X obj 525 125 vsl 40 200 0 1 0 0 total empty TOTAL 0 -25 0 20 -262130
--1 -261234 15920 1;
-#X obj 833 948 r total;
-#X obj 833 972 print total;
-#X obj 834 1008 r clear;
-#X obj 834 1032 print clear;
+-1 -261234 12500 1;
+#X obj 683 518 r total;
+#X obj 683 542 print total;
+#X obj 684 578 r clear;
+#X obj 684 602 print clear;
 #X obj 215 534 bng 75 250 50 0 clear empty clear 16 38 0 15 -261234
 -204786 -262144;
 #X obj 214 306 hradio 30 1 1 3 length empty LENGTH 0 -35 0 24 -232576
@@ -103,9 +103,9 @@
 #X obj 538 749 router4, f 16;
 #X obj 538 730 r length;
 #X msg 214 163 0;
-#X obj 650 1066 r length;
-#X obj 650 1090 print l;
-#N canvas 0 23 450 300 mobmu_sends 0;
+#X obj 500 636 r length;
+#X obj 500 660 print l;
+#N canvas 0 23 785 468 mobmu_sends 0;
 #X obj 77 163 s lfo;
 #N canvas 0 610 960 564 mobmuplat 0;
 #X obj 39 207 outlet offset;
@@ -144,6 +144,12 @@
 #X obj 106 129 - 1;
 #X obj 106 78 * 2.5;
 #X obj 106 28 > 0.1;
+#X obj 805 18 route /pitch;
+#X obj 805 136 outlet pitch;
+#X obj 805 78 round_int;
+#X obj 805 47 * 12;
+#X obj 805 109 - 6;
+#X obj 569 174 * 5;
 #X connect 5 0 6 0;
 #X connect 6 0 7 0;
 #X connect 6 0 8 0;
@@ -153,6 +159,7 @@
 #X connect 6 0 21 0;
 #X connect 6 0 22 0;
 #X connect 6 0 26 0;
+#X connect 6 0 36 0;
 #X connect 7 0 12 0;
 #X connect 8 0 11 0;
 #X connect 9 0 17 0;
@@ -165,7 +172,7 @@
 #X connect 15 0 14 0;
 #X connect 16 0 4 0;
 #X connect 17 0 10 0;
-#X connect 21 0 20 0;
+#X connect 21 0 41 0;
 #X connect 22 0 23 0;
 #X connect 23 0 24 0;
 #X connect 26 0 28 0;
@@ -175,6 +182,11 @@
 #X connect 33 0 30 0;
 #X connect 34 0 32 0;
 #X connect 35 0 31 0;
+#X connect 36 0 39 0;
+#X connect 38 0 40 0;
+#X connect 39 0 38 0;
+#X connect 40 0 37 0;
+#X connect 41 0 20 0;
 #X restore 66 27 pd mobmuplat;
 #X obj 68 212 s offset;
 #X obj 138 188 s slot;
@@ -188,6 +200,7 @@
 #X text 65 8 MobMuPlat middleware;
 #X obj 233 96 s total;
 #X obj 327 96 s length;
+#X obj 334 67 s pitch;
 #X connect 1 0 2 0;
 #X connect 1 1 0 0;
 #X connect 1 2 3 0;
@@ -196,12 +209,28 @@
 #X connect 1 5 5 0;
 #X connect 1 6 12 0;
 #X connect 1 7 13 0;
+#X connect 1 8 14 0;
 #X connect 5 0 6 0;
 #X connect 5 1 7 0;
 #X connect 5 2 8 0;
 #X connect 5 3 9 0;
 #X restore 30 678 pd mobmu_sends;
 #X text 35 652 MobMuPlat;
+#X obj 748 730 r slot, f 7;
+#X obj 688 749 router4, f 16;
+#X obj 688 730 r pitch, f 8;
+#X obj 688 773 send p1;
+#X obj 724 806 send p2;
+#X obj 760 787 send p3;
+#X obj 797 768 send p4;
+#X obj 273 1030 r p2;
+#X obj 366 1049 shift;
+#X obj 366 1030 r p3;
+#X obj 482 1046 shift;
+#X obj 482 1027 r p4;
+#X obj 176 1030 r p1, f 5;
+#X obj 176 1049 shift;
+#X obj 273 1049 shift;
 #X connect 1 0 0 0;
 #X connect 3 0 16 0;
 #X connect 4 0 13 0;
@@ -251,10 +280,10 @@
 #X connect 39 0 40 0;
 #X connect 40 0 21 0;
 #X connect 41 0 42 1;
-#X connect 42 0 11 0;
-#X connect 43 0 11 0;
-#X connect 44 0 11 0;
-#X connect 45 0 11 0;
+#X connect 42 0 108 1;
+#X connect 43 0 109 1;
+#X connect 44 0 103 1;
+#X connect 45 0 105 1;
 #X connect 46 0 11 1;
 #X connect 47 0 43 1;
 #X connect 48 0 44 1;
@@ -289,3 +318,17 @@
 #X connect 90 0 86 0;
 #X connect 90 0 7 0;
 #X connect 91 0 92 0;
+#X connect 95 0 96 1;
+#X connect 96 0 98 0;
+#X connect 96 1 99 0;
+#X connect 96 2 100 0;
+#X connect 96 3 101 0;
+#X connect 97 0 96 0;
+#X connect 102 0 109 0;
+#X connect 103 0 11 0;
+#X connect 104 0 103 0;
+#X connect 105 0 11 0;
+#X connect 106 0 105 0;
+#X connect 107 0 108 0;
+#X connect 108 0 11 0;
+#X connect 109 0 11 0;
