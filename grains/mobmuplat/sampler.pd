@@ -1,6 +1,6 @@
-#N canvas 22 199 960 564 12;
+#N canvas 413 23 960 564 12;
 #X obj 212 220 phasor~ 1;
-#X msg 666 158 const 0;
+#X msg 666 208 const 0;
 #X obj 212 286 *~ 44100;
 #X obj 296 192 / 1;
 #X obj 180 173 t b f;
@@ -21,7 +21,7 @@
 #X text 180 3 the time division of the sample;
 #X text 180 19 e.g. a value of 4 is 1/4 th of the sample;
 #X obj 34 246 tabwrite~ \$0-sample;
-#X obj 666 182 array define \$0-sample 44100;
+#X obj 666 232 array define \$0-sample 44100;
 #X obj 212 486 tabread4~ \$0-sample;
 #X obj 212 447 +~, f 4;
 #X obj 666 459 snapshot~;
@@ -43,6 +43,7 @@
 #X text 419 357 to null the signal;
 #X obj 358 357 +~ 1;
 #X obj 666 429 metro 100;
+#X obj 666 179 r clear;
 #X connect 0 0 2 0;
 #X connect 1 0 22 0;
 #X connect 2 0 24 0;
@@ -76,3 +77,4 @@
 #X connect 40 0 42 0;
 #X connect 42 0 37 0;
 #X connect 43 0 25 0;
+#X connect 44 0 1 0;

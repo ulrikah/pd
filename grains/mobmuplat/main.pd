@@ -9,7 +9,7 @@
 #X obj 38 108 throw~ audio;
 #X obj 40 258 s time;
 #X obj 216 182 hradio 50 1 1 4 empty empty STEPS 0 -35 0 24 -204786
--1 -261234 3;
+-1 -261234 0;
 #X obj 208 956 sampler;
 #X obj 216 163 loadbang;
 #X obj 305 958 sampler;
@@ -58,7 +58,7 @@
 #X obj 319 981 r s2;
 #X obj 412 981 r s3;
 #X obj 528 981 r s4;
-#X obj 526 533 s lfo;
+#X obj 506 583 s lfo;
 #X obj 105 729 r rec;
 #X obj 646 816 r lfo;
 #X obj 646 840 print lfo;
@@ -73,7 +73,7 @@
 #X text 696 775 DEBUG;
 #X obj 652 947 r s1;
 #X obj 652 971 print s1;
-#N canvas 0 610 960 564 mobmuplat 1;
+#N canvas 0 610 960 564 mobmuplat 0;
 #X obj 39 217 outlet lfo;
 #X obj 106 197 outlet offset;
 #X obj 204 167 outlet slot;
@@ -102,12 +102,21 @@
 #X obj 300 -147 + 1;
 #X obj 39 -250 gui_wrapper;
 #X text 132 -250 necessary to connect to Mobmuplat editor GUI;
+#X obj 569 217 outlet total;
+#X obj 569 -171 route /total;
+#X obj 680 -171 route /clear;
+#X obj 680 -146 sel 1;
+#X obj 680 -121 s clear;
+#X text 678 -92 directly received as message in sampler so we don't
+bother using an outlet;
 #X connect 6 0 7 0;
 #X connect 7 0 8 0;
 #X connect 7 0 9 0;
 #X connect 7 0 10 0;
 #X connect 7 0 21 0;
 #X connect 7 0 24 0;
+#X connect 7 0 29 0;
+#X connect 7 0 30 0;
 #X connect 8 0 18 0;
 #X connect 9 0 17 0;
 #X connect 10 0 25 0;
@@ -127,16 +136,19 @@
 #X connect 23 0 1 0;
 #X connect 24 0 5 0;
 #X connect 25 0 11 0;
-#X restore 526 477 pd mobmuplat;
-#X obj 542 582 s offset;
-#X obj 558 558 s slot;
-#X obj 574 536 s time;
-#X obj 670 496 unpack f f f f;
-#X obj 670 520 s s1;
-#X obj 701 547 s s2;
-#X obj 733 521 s s3;
-#X obj 765 547 s s4;
-#X obj 590 508 s rec;
+#X connect 29 0 28 0;
+#X connect 30 0 31 0;
+#X connect 31 0 32 0;
+#X restore 506 447 pd mobmuplat;
+#X obj 522 632 s offset;
+#X obj 538 608 s slot;
+#X obj 554 586 s time;
+#X obj 620 546 unpack f f f f;
+#X obj 620 570 s s1;
+#X obj 651 597 s s2;
+#X obj 683 571 s s3;
+#X obj 715 597 s s4;
+#X obj 570 558 s rec;
 #X obj 732 947 r s2;
 #X obj 732 971 print s2;
 #X obj 652 1007 r s3;
@@ -159,7 +171,12 @@
 #X msg 615 142 0.4;
 #X obj 525 125 vsl 40 200 0 1 0 0 total empty TOTAL 0 -25 0 20 -262130
 -1 -261234 15920 1;
-#X text 525 448 MobMuPlat middleware;
+#X text 505 428 MobMuPlat middleware;
+#X obj 633 516 s total;
+#X obj 833 948 r total;
+#X obj 833 972 print total;
+#X obj 834 1008 r clear;
+#X obj 834 1032 print clear;
 #X connect 1 0 0 0;
 #X connect 3 0 16 0;
 #X connect 4 0 13 0;
@@ -171,9 +188,9 @@
 #X connect 11 0 12 0;
 #X connect 11 0 12 1;
 #X connect 13 0 5 0;
+#X connect 14 0 8 0;
 #X connect 14 0 10 0;
 #X connect 14 0 18 0;
-#X connect 14 0 8 0;
 #X connect 14 0 19 0;
 #X connect 16 0 22 0;
 #X connect 18 0 47 0;
@@ -232,6 +249,7 @@
 #X connect 68 3 71 0;
 #X connect 68 4 77 0;
 #X connect 68 5 72 0;
+#X connect 68 6 96 0;
 #X connect 72 0 73 0;
 #X connect 72 1 74 0;
 #X connect 72 2 75 0;
@@ -248,3 +266,5 @@
 #X connect 91 0 87 0;
 #X connect 92 0 91 0;
 #X connect 93 0 91 0;
+#X connect 97 0 98 0;
+#X connect 99 0 100 0;
