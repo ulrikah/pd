@@ -1,6 +1,6 @@
 #N canvas 960 23 960 1150 12;
 #X msg 224 70 \; pd dsp \$1;
-#X obj 224 34 tgl 30 0 empty empty empty 17 7 0 10 -203904 -1 -1 1
+#X obj 224 34 tgl 30 0 empty empty empty 17 7 0 10 -203904 -1 -1 0
 1;
 #X text 224 13 turn dsp on/off;
 #X obj 43 182 hsl 128 25 1 32 0 1 empty empty TIME -2 -16 0 24 -262130
@@ -11,7 +11,7 @@
 #X obj 216 182 hradio 50 1 1 4 slot empty STEPS 0 -35 0 24 -204786
 -1 -261234 0;
 #X obj 208 956 sampler;
-#X obj 216 163 loadbang;
+#X obj 356 83 loadbang;
 #X obj 305 958 sampler;
 #X obj 208 1063 *~ 1;
 #X obj 208 1103 dac~;
@@ -36,7 +36,7 @@
 #X obj 29 729 r slot;
 #X obj 138 730 r time;
 #X obj 184 730 r slot;
-#X obj 215 333 bng 150 250 50 0 rec empty REC 47 75 0 30 -258113 -204786
+#X obj 215 363 bng 150 250 50 0 rec empty REC 47 75 0 30 -258113 -204786
 -262144;
 #X obj 448 730 r slot, f 7;
 #X obj 388 730 r offset;
@@ -174,19 +174,20 @@ bother using an outlet;
 #X obj 833 972 print total;
 #X obj 834 1008 r clear;
 #X obj 834 1032 print clear;
-#X obj 215 504 bng 75 250 50 0 clear empty clear 16 38 0 15 -261234
+#X obj 215 534 bng 75 250 50 0 clear empty clear 16 38 0 15 -261234
 -204786 -262144;
-#X obj 216 276 hradio 30 1 1 3 length empty LENGTH 0 -15 0 24 -232576
--1 -261234 1;
+#X obj 216 306 hradio 30 1 1 3 length empty LENGTH 0 -35 0 24 -232576
+-1 -261234 0;
 #X obj 598 730 r slot, f 7;
 #X obj 538 749 router4, f 16;
 #X obj 538 730 r length;
+#X msg 356 102 0;
 #X connect 1 0 0 0;
 #X connect 3 0 16 0;
 #X connect 4 0 13 0;
 #X connect 4 1 13 0;
 #X connect 8 0 42 0;
-#X connect 9 0 7 0;
+#X connect 9 0 103 0;
 #X connect 10 0 43 0;
 #X connect 11 0 12 0;
 #X connect 11 0 12 1;
@@ -276,3 +277,5 @@ bother using an outlet;
 #X connect 101 2 18 5;
 #X connect 101 3 19 5;
 #X connect 102 0 101 0;
+#X connect 103 0 99 0;
+#X connect 103 0 7 0;
