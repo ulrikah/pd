@@ -25,7 +25,7 @@
 #X obj 358 308 osc~ 0.1;
 #X obj 180 41 inlet time;
 #X obj 358 232 inlet lfo;
-#X obj 466 282 inlet offset;
+#X obj 466 281 inlet offset;
 #X obj 666 503 print;
 #X obj 358 385 *~ 1;
 #X obj 383 256 > 0;
@@ -41,7 +41,7 @@
 #X text 550 25 beat multiplior;
 #X obj 358 441 clip~ 0 44100;
 #X obj 710 111 s sr;
-#X floatatom 481 435 10 0 0 0 - - -;
+#X floatatom 481 446 10 0 0 0 - - -;
 #X obj 212 286 *~ 44100;
 #X obj 666 232 array define \$0-sample 44100;
 #X obj 552 165 t b f;
@@ -56,8 +56,12 @@
 #X msg 273 60 1;
 #X obj 552 223 s \$0-rate;
 #X obj 306 190 r \$0-rate;
-#X obj 481 411 r \$0-rate;
+#X obj 481 422 r \$0-rate;
 #X obj 743 182 r \$0-rate;
+#X floatatom 526 396 10 0 0 0 - - -;
+#X obj 512 307 r \$0-rate;
+#X obj 466 334 * 44100;
+#X obj 466 366 / 2;
 #X connect 0 0 44 0;
 #X connect 1 0 43 1;
 #X connect 2 0 1 0;
@@ -79,7 +83,7 @@
 #X connect 24 0 12 0;
 #X connect 25 0 23 0;
 #X connect 25 0 29 0;
-#X connect 26 0 28 1;
+#X connect 26 0 61 0;
 #X connect 28 0 40 0;
 #X connect 29 0 30 0;
 #X connect 30 0 31 1;
@@ -102,7 +106,6 @@
 #X connect 48 0 44 0;
 #X connect 50 0 51 0;
 #X connect 51 0 43 0;
-#X connect 51 0 18 0;
 #X connect 52 0 50 0;
 #X connect 52 1 50 1;
 #X connect 53 0 54 0;
@@ -111,3 +114,7 @@
 #X connect 57 0 42 0;
 #X connect 57 0 40 2;
 #X connect 58 0 48 0;
+#X connect 60 0 61 1;
+#X connect 61 0 62 0;
+#X connect 62 0 59 0;
+#X connect 62 0 28 1;
